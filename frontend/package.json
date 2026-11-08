@@ -29,6 +29,7 @@
     "@types/qs": "^6.15.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@yandex/ymaps3-default-ui-theme": "0.0.25",
     "@yandex/ymaps3-types": "^1.0.19996773",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",

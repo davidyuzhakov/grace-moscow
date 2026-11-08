@@ -1,8 +1,4 @@
-import {
-  IconBrandWhatsappFilled,
-  IconBrandYoutubeFilled,
-  IconMailFilled,
-} from '@tabler/icons-react'
+import { IconBrandYoutubeFilled, IconMailFilled } from '@tabler/icons-react'
 import Image from 'next/image'
 
 export function Footer() {

@@ -3,7 +3,6 @@
 import { registerAction } from '@/actions/auth'
 import { Button } from '@/components/Button'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { useActionState } from 'react'
 

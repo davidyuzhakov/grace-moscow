@@ -46,11 +46,11 @@ export function AboutBlock() {
 
   return (
     <>
-      <div className="md:space-y-3 space-y-2 text-center max-w-200 mx-auto md:pb-16 pb-10 mb-0">
+      <div className="md:space-y-3 space-y-2 text-center max-w-200 mx-auto md:mb-22 mb-16">
         <Chip text="кто мы" className="bg-accent" />
         <h2
           ref={heading}
-          className="lg:text-3xl sm:text-2xl lg:leading-10 text-xl text-black"
+          className="lg:text-3xl sm:text-2xl text-xl text-black"
         >
           {ABOUT_WORDS.map((word, index) => (
             <Fragment key={index}>

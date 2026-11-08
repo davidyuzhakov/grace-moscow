@@ -1,10 +1,11 @@
 import { IconMap, IconMapPin } from '@tabler/icons-react'
 import { Tag } from '../Tag'
 import Image from 'next/image'
+import { YandexMap } from '../YandexMap'
 
 export function ContactsBlock() {
   return (
-    <>
+    <div className="space-y-4">
       <div className="flex items-center gap-2">
         <div className="bg-white shadow-sm rounded-full md:size-10 size-8 flex items-center justify-center">
           <IconMapPin className="md:size-6 size-5" />
@@ -34,15 +35,8 @@ export function ContactsBlock() {
         </Tag>
       </div>
       <div className="w-full h-80">
-        <iframe
-          src="https://yandex.ru/map-widget/v1/?ll=37.523795%2C55.837495&amp;z=17.11&amp;mode=search&amp;oid=208449406853&amp;ol=biz"
-          width="100%"
-          height="100%"
-          className="border-none rounded-2xl"
-          loading="lazy"
-          title="Расположение на Яндекс Картах"
-        ></iframe>
+        <YandexMap />
       </div>
-    </>
+    </div>
   )
 }

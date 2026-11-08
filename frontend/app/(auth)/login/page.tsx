@@ -1,6 +1,5 @@
 'use client'
 import Link from 'next/link'
-import Image from 'next/image'
 import { loginAction } from '@/actions/auth'
 import { Button } from '@/components/Button'
 import { useActionState } from 'react'
