@@ -440,66 +440,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiDutyRoleDutyRole extends Struct.CollectionTypeSchema {
-  collectionName: 'duty_roles';
-  info: {
-    displayName: 'DutyRole';
-    pluralName: 'duty-roles';
-    singularName: 'duty-role';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    duties: Schema.Attribute.Relation<'oneToMany', 'api::duty.duty'>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::duty-role.duty-role'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
-    order: Schema.Attribute.Integer & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiDutyDuty extends Struct.CollectionTypeSchema {
-  collectionName: 'duties';
-  info: {
-    displayName: 'Duty';
-    pluralName: 'duties';
-    singularName: 'duty';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    duty_role: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::duty-role.duty-role'
-    >;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::duty.duty'> &
-      Schema.Attribute.Private;
-    person: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    sunday: Schema.Attribute.Relation<'manyToOne', 'api::sunday.sunday'>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiNewsItemNewsItem extends Struct.CollectionTypeSchema {
   collectionName: 'news';
   info: {
@@ -531,35 +471,6 @@ export interface ApiNewsItemNewsItem extends Struct.CollectionTypeSchema {
     telegramLink: Schema.Attribute.String;
     time: Schema.Attribute.Time & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiSundaySunday extends Struct.CollectionTypeSchema {
-  collectionName: 'sundays';
-  info: {
-    displayName: 'Sunday';
-    pluralName: 'sundays';
-    singularName: 'sunday';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    date: Schema.Attribute.Date;
-    duties: Schema.Attribute.Relation<'oneToMany', 'api::duty.duty'>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::sunday.sunday'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1086,10 +997,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::duty-role.duty-role': ApiDutyRoleDutyRole;
-      'api::duty.duty': ApiDutyDuty;
       'api::news-item.news-item': ApiNewsItemNewsItem;
-      'api::sunday.sunday': ApiSundaySunday;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
