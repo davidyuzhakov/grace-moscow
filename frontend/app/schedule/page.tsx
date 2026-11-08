@@ -26,15 +26,10 @@ export default async function SchedulePage() {
 
   return (
     <section className="space-y-5">
-      <h1 className="font-bold md:mb-5 mb-3 md:block hidden text-3xl">
-        Расписание служений
-      </h1>
+      <h1 className="title font-semibold md:mb-5 mb-3">Расписание служений</h1>
 
       {schedule.ok ? (
-        <ScheduleBoard
-          dutyRoles={schedule.data.dutyRoles}
-          sundays={schedule.data.sundays}
-        />
+        <ScheduleBoard {...schedule.data} />
       ) : (
         <div className="rounded-3xl bg-white p-8 shadow-md">
           <ErrorState error={schedule.error} />

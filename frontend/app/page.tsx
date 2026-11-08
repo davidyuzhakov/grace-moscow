@@ -5,6 +5,7 @@ import { newsService } from '@/services/news.service'
 import { ErrorState } from '@/components/ErrorState'
 import { ContactsBlock } from '@/components/blocks/ContactsBlock'
 import { HeroBlock } from '@/components/blocks/HeroBlock'
+import { IconNews } from '@tabler/icons-react'
 
 export default async function HomePage() {
   const result = await newsService.getAllNews()
@@ -56,11 +57,11 @@ export default async function HomePage() {
         </div>
       </section>
       <section className="space-y-6 md:pt-0 pt-5">
-        <div>
-          <h2 className="tracking-wider md:text-5xl text-3xl font-extrabold text-primary text-center uppercase">
-            Новости
-          </h2>
-          <div className="h-0.75 w-16 rounded-full bg-primary mx-auto md:mt-5 mt-3" />
+        <div className="flex items-center gap-2">
+          <div className="bg-white shadow-sm rounded-full md:size-10 size-8 flex items-center justify-center">
+            <IconNews className="md:size-6 size-5" />
+          </div>
+          <h3 className="md:text-2xl text-xl font-medium">Новости церкви</h3>
         </div>
         {!result.ok ? (
           <ErrorState error={result.error} />

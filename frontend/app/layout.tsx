@@ -49,7 +49,9 @@ export default async function RootLayout({
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <Header />
-        <main className="flex-1 container pt-24 pb-20">{children}</main>
+        <main className="flex-1 container md:pt-24 pt-20 md:pb-20 pb-10">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

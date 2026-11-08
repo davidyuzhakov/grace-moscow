@@ -43,14 +43,8 @@ body {
 }
 
 .title {
-  font-size: 32px;
-  font-weight: 700;
-}
-
-@media (min-width: 768px) {
-  .title {
-    font-size: 36px;
-  }
+  font-size: 28px;
+  font-weight: 600;
 }
 
 .divider {

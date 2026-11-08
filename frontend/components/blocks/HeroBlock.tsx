@@ -1,10 +1,8 @@
 'use client'
 
 import { useGSAP } from '@gsap/react'
-import { IconExternalLink } from '@tabler/icons-react'
 import gsap from 'gsap'
 import { TextPlugin } from 'gsap/TextPlugin'
-import Link from 'next/link'
 import { useRef } from 'react'
 
 gsap.registerPlugin(useGSAP, TextPlugin)
