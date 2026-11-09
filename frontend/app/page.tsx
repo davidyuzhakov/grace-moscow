@@ -50,7 +50,7 @@ export default async function HomePage() {
         <div className="md:mt-5 mt-8 flex justify-center">
           <Link
             href={'/about'}
-            className="text-center ml-auto border-foreground/10 border px-3 py-2 rounded-full text-sm text-foreground/75 duration-200 hover:border-primary hover:text-primary"
+            className="text-center ml-auto border-border-strong border px-3 py-2 rounded-full text-sm text-foreground/75 duration-200 hover:border-accent hover:text-accent"
           >
             Подробнее о нас
           </Link>
@@ -58,7 +58,7 @@ export default async function HomePage() {
       </section>
       <section className="space-y-6 md:pt-0 pt-5">
         <div className="flex items-center gap-2">
-          <div className="bg-white shadow-sm rounded-full md:size-10 size-8 flex items-center justify-center">
+          <div className="bg-surface border border-border rounded-full md:size-10 size-8 flex items-center justify-center">
             <IconNews className="md:size-6 size-5" />
           </div>
           <h3 className="md:text-2xl text-xl font-medium">Новости церкви</h3>
@@ -77,7 +77,7 @@ export default async function HomePage() {
               <div className="flex justify-center">
                 <Link
                   href={'/news'}
-                  className="text-center border-foreground/10 border px-3 py-2 rounded-full text-sm text-foreground/75 duration-200 hover:border-primary hover:text-primary"
+                  className="text-center border-border-strong border px-3 py-2 rounded-full text-sm text-foreground/75 duration-200 hover:border-accent hover:text-accent"
                 >
                   Больше новостей
                 </Link>

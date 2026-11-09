@@ -43,20 +43,20 @@ export default async function NewsDetailsPage({ params }: NewsDetailsProps) {
           width={0}
           height={0}
           sizes="100vw"
-          className="z-1 lg:w-1/2 w-full object-cover h-auto rounded-3xl text-black self-start"
+          className="z-1 lg:w-1/2 w-full object-cover h-auto rounded-3xl text-foreground self-start"
         />
         <div className="space-y-2 md:p-4 py-4">
-          <div className="flex items-center md:gap-3 gap-2 flex-wrap">
+          <div className="flex items-center gap-2 flex-wrap">
             <Tag>
-              <IconCalendarEvent className="size-5" />
+              <IconCalendarEvent className="size-4" />
               {date}
             </Tag>
             <Tag>
-              <IconClock className="size-5" />
+              <IconClock className="size-4" />
               {time.slice(0, 5)}
             </Tag>
             <Tag>
-              <IconMapPin className="size-5" />
+              <IconMapPin className="size-4" />
               {address}
             </Tag>
           </div>
@@ -101,7 +101,7 @@ export default async function NewsDetailsPage({ params }: NewsDetailsProps) {
             >
               Написать
               <svg
-                className="md:size-5.75 size-5 group-hover:text-foreground duration-200"
+                className="md:size-5.75 size-5 duration-200"
                 xmlns="http://www.w3.org/2000/svg"
                 shapeRendering="geometricPrecision"
                 textRendering="geometricPrecision"

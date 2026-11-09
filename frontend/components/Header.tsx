@@ -25,15 +25,15 @@ const statusInfo: Record<
   { tagStyle: string; description: string }
 > = {
   'на модерации': {
-    tagStyle: 'bg-purple-100 text-purple-500',
+    tagStyle: 'bg-purple-400/15 text-purple-400',
     description: 'Ожидайте статуса «Принято» для доступа к приватным страницам',
   },
   принято: {
-    tagStyle: 'bg-green-100 text-green-500',
+    tagStyle: 'bg-green-400/15 text-green-400',
     description: 'У вас есть доступ к приватным страницам',
   },
   отклонено: {
-    tagStyle: 'bg-red-100 text-red-500',
+    tagStyle: 'bg-red-400/15 text-red-400',
     description: 'Вам запретили доступ к приватным с страницам',
   },
 }
@@ -111,7 +111,7 @@ export function Header() {
 
   return (
     <header className="fixed top-3 left-1 right-1 z-10">
-      <div className="max-w-325 mx-auto md:grid grid-cols-[1fr_auto_1fr] flex gap-5 items-center justify-between bg-white/90 backdrop-blur-md border-2 border-white/10 shadow-[0_2px_4px_rgba(255,255,255,0.1)_inset,0_0px_12px_rgba(15,23,42,0.08)] py-2 px-5 rounded-full">
+      <div className="max-w-325 mx-auto md:grid grid-cols-[1fr_auto_1fr] flex gap-5 items-center justify-between bg-background/70 backdrop-blur-md border border-border shadow-lg shadow-black/20 py-2 px-5 rounded-full">
         <Link href={'/'} className="w-fit shrink-0">
           <Image
             className="w-full md:max-w-20 max-w-16 h-auto shrink-0"
@@ -119,7 +119,7 @@ export function Header() {
             height={0}
             sizes="100vw"
             style={{ width: '100%', height: 'auto' }}
-            src={'/logo.png'}
+            src={'/logo-white.png'}
             alt="Логотип"
           />
         </Link>
@@ -128,7 +128,7 @@ export function Header() {
             {navLinks.map((link) => (
               <li
                 key={link.name}
-                className={`cursor-pointer text-nowrap font-medium hover:text-primary duration-200 ${pathname === link.location ? 'text-primary' : ''}`}
+                className={`cursor-pointer text-nowrap hover:text-accent duration-200 ${pathname === link.location ? 'text-accent' : ''}`}
               >
                 <Link href={link.location}>{link.name}</Link>
               </li>
@@ -140,10 +140,10 @@ export function Header() {
             <div className="relative ml-auto">
               <div
                 onClick={() => setOpenPopup('profile')}
-                className="flex items-center gap-2 hover:text-primary cursor-pointer duration-200"
+                className="flex items-center gap-2 hover:text-accent cursor-pointer duration-200"
               >
                 <IconUserCircle className="size-6" />
-                <div className="font-medium text-nowrap truncate max-w-47.5 lg:block hidden">
+                <div className="text-nowrap truncate max-w-47.5 lg:block hidden">
                   {user.name}
                 </div>
                 <IconChevronDown
@@ -152,7 +152,7 @@ export function Header() {
                 />
               </div>
               {openPopup === 'profile' && (
-                <div className="profile-info absolute top-[calc(100%+10px)] right-0 p-3 bg-white rounded-xl  drop-shadow-[0_0px_10px_rgba(0,0,0,0.1)] w-60 space-y-4">
+                <div className="profile-info absolute top-[calc(100%+10px)] right-0 p-3 bg-surface border border-border rounded-xl shadow-xl shadow-black/30 w-60 space-y-4">
                   <div className="truncate font-medium text-lg lg:hidden block">
                     {user.name}
                   </div>
@@ -169,14 +169,14 @@ export function Header() {
                       </div>
                     </div>
 
-                    <p className="text-xs text-black/70 mt-1">
+                    <p className="text-xs text-text-secondary mt-1">
                       {statusInfo[user.userStatus].description}
                     </p>
                   </div>
                   <Button
                     variant="ghost"
                     onClick={logoutHandler}
-                    className="text-red-500 w-full flex items-center gap-2 justify-center py-1 rounded-xl bg-red-50 hover:bg-red-100 disabled:opacity-50"
+                    className="text-danger w-full flex items-center gap-2 justify-center py-1 rounded-xl bg-danger/10 hover:bg-danger/20 hover:text-danger disabled:opacity-50"
                   >
                     Выйти
                     <IconLogout size={20} />
@@ -186,14 +186,17 @@ export function Header() {
             </div>
           ) : !isLoading ? (
             <Link
-              className="text-primary items-center gap-1 text-lg font-medium group  md:flex hidden"
+              className="items-center gap-1 md:flex hidden hover:border-accent hover:text-accent duration-200 group"
               href={'/login'}
             >
-              Войти{' '}
-              <IconLogin2 className="group-hover:translate-x-1 duration-200" />
+              Войти
+              <IconLogin2
+                size={18}
+                className="group-hover:translate-x-1 duration-200"
+              />
             </Link>
           ) : (
-            <div className="bg-gray-300 animate-pulse rounded-lg h-6 w-16 lg:w-40 md:block hidden"></div>
+            <div className="bg-surface-raised animate-pulse rounded-lg h-6 w-16 lg:w-40 md:block hidden"></div>
           )}
           <div
             onClick={() =>
@@ -207,14 +210,14 @@ export function Header() {
       </div>
 
       <nav
-        className={`menu md:hidden block bg-white/90 backdrop-blur-sm rounded-2xl absolute top-[calc(100%+10px)] left-1 right-1 shadow-sm space-y-7 p-4 duration-200 ${openPopup === 'menu' ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}
+        className={`menu md:hidden block bg-surface/95 backdrop-blur-sm border border-border rounded-2xl absolute top-[calc(100%+10px)] left-1 right-1 shadow-sm space-y-7 p-4 duration-200 ${openPopup === 'menu' ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}
       >
         <div className="space-y-2">
           {navLinks.map((link) => (
             <Link
               onClick={() => setOpenPopup(null)}
               key={link.name}
-              className={`block text-xl text-center py-3 font-medium ${pathname === link.location ? 'text-primary bg-primary/10 rounded-full' : ''}`}
+              className={`block text-xl text-center py-3 font-medium ${pathname === link.location ? 'text-accent bg-primary/10 rounded-full' : ''}`}
               href={link.location}
             >
               {link.name}

@@ -58,7 +58,7 @@ export function YandexMap() {
   if (!apiKey || failed) {
     return (
       <div
-        className="flex size-full items-center justify-center bg-gray-100 p-6 text-center text-sm"
+        className="flex size-full items-center justify-center bg-surface text-muted p-6 text-center text-sm"
         role="status"
       >
         Не удалось загрузить карту. Воспользуйтесь кнопкой «Открыть в Картах».
@@ -77,7 +77,7 @@ export function YandexMap() {
         <MapContainer api={reactifiedApi} />
       ) : (
         <div
-          className="size-full bg-gray-200 motion-safe:animate-pulse"
+          className="size-full bg-surface-raised motion-safe:animate-pulse"
           role="status"
           aria-label="Загрузка карты"
         />
@@ -100,6 +100,7 @@ function MapContainer({ api }: { api: ReactifiedApi }) {
     <YMap
       className="size-full rounded-2xl"
       location={location}
+      theme="dark"
       behaviors={['drag', 'pinchZoom', 'dblClick']}
     >
       <YMapDefaultSchemeLayer />

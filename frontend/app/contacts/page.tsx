@@ -1,5 +1,4 @@
 import {
-  IconBrandWhatsappFilled,
   IconBrandYoutubeFilled,
   IconCalendarMonth,
   IconClock,
@@ -23,27 +22,27 @@ export default function ContactsPage() {
         <h2 className="md:mb-2 mb-1 md:text-5xl text-3xl font-bold">
           Контакты
         </h2>
-        <p className="text-foreground/70 md:text-base text-sm max-w-140 mx-auto">
+        <p className="text-muted md:text-base text-sm max-w-140 mx-auto">
           Мы всегда рады видеть вас. Присоединяйтесь к нашим служениям или
           свяжитесь с нами любым удобным способом.
         </p>
       </div>
       <div className="flex justify-between gap-7 md:flex-row flex-col">
-        <div className="w-full md:max-w-1/2 bg-white shadow-xs rounded-xl p-6 space-y-4">
+        <div className="w-full md:max-w-1/2 bg-surface border border-border rounded-xl p-6 space-y-4">
           <div className="flex items-center gap-3 text-xl">
             <div className="bg-primary text-white rounded-full size-10 flex items-center justify-center">
               <IconCalendarMonth />
             </div>
             Наши служения
           </div>
-          <div className="bg-gray-50 rounded-xl p-4 text-lg">
+          <div className="bg-surface-raised rounded-xl p-4 text-lg">
             Молитвенное служение
             <div className="flex items-center gap-2 mt-3">
               <IconClock size={20} />
               пт, 19:00
             </div>
           </div>
-          <div className="bg-gray-50 rounded-xl p-4 text-lg">
+          <div className="bg-surface-raised rounded-xl p-4 text-lg">
             Воскресное служение
             <div className="flex items-center gap-2 mt-3">
               <IconClock size={20} />
@@ -51,7 +50,7 @@ export default function ContactsPage() {
             </div>
           </div>
         </div>
-        <div className="w-full md:max-w-1/2 shadow-xs bg-white rounded-xl p-6 md:space-y-6 space-y-8">
+        <div className="w-full md:max-w-1/2 bg-surface border border-border rounded-xl p-6 md:space-y-6 space-y-8">
           <div className="flex items-center gap-3 text-xl">
             <div className="bg-primary text-white rounded-full size-10 flex items-center justify-center">
               <IconPhoneCall />
@@ -59,12 +58,12 @@ export default function ContactsPage() {
             Связь с нами
           </div>
           <div className="space-y-3">
-            <div className="lg:text-4xl min-[370px]:text-3xl text-[26px] text-primary font-medium">
+            <div className="lg:text-4xl min-[370px]:text-3xl text-[26px] text-accent font-medium">
               <a href="tel:79165998103">+7 (916) 599-81-03</a>
             </div>
             <a
               href="mailto:grace.church.msk@yandex.ru"
-              className="md:text-xl text-base flex items-center gap-2 text-secondary min-[370px]:text-lg"
+              className="md:text-xl text-base flex items-center gap-2 text-text-secondary hover:text-accent min-[370px]:text-lg"
             >
               <IconMail className="shrink-0 min-[370px]:size-6 size-5" />{' '}
               grace.church.msk@yandex.ru

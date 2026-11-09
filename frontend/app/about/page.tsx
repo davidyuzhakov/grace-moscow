@@ -26,12 +26,12 @@ export default function AboutPage() {
       </div>
       <AboutBlock />
       <div className="space-y-5">
-        <Chip text="во что мы верим" className="bg-tretiary bg-primary" />
-        <div className="border-l-4 border-primary md:p-7 p-5 rounded-r-xl shadow-sm">
-          <h3 className="text-primary md:mb-6 mb-4 font-bold md:text-base text-sm uppercase tracking-wider">
+        <Chip text="во что мы верим" className="bg-accent" />
+        <div className="bg-surface border-l-4 border-l-accent md:p-7 p-5 rounded-r-xl shadow-sm">
+          <h3 className="text-accent md:mb-6 mb-4 font-bold md:text-base text-sm uppercase tracking-wider">
             Апостольский Символ Веры
           </h3>
-          <blockquote className=" text-black/70 leading-relaxed italic md:text-base text-sm">
+          <blockquote className=" text-text-secondary leading-relaxed italic md:text-base text-sm">
             &ldquo;Верую в Бога, Отца Всемогущего, Творца неба и земли. Верую в
             Иисуса Христа, Единородного Сына Божьего и Господа нашего, Который
             был зачат от Святого Духа, рождён от Девы Марии и пострадал при

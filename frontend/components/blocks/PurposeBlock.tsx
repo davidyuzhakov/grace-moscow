@@ -18,7 +18,7 @@ const PURPOSES = [
     description: 'познавать Его благодать и отвечать Ему любовью.',
     icon: IconHeart,
     color:
-      '[--purpose-color:var(--color-red-400)] [--purpose-text:var(--color-red-600)]',
+      '[--purpose-color:var(--color-red-400)] [--purpose-text:var(--color-red-400)]',
     position: { x: 0.382683, y: -0.92388 },
   },
   {
@@ -26,7 +26,7 @@ const PURPOSES = [
     description: 'являть Божью любовь другим.',
     icon: IconHeartHandshake,
     color:
-      '[--purpose-color:var(--color-purple-400)] [--purpose-text:var(--color-purple-600)]',
+      '[--purpose-color:var(--color-purple-400)] [--purpose-text:var(--color-purple-400)]',
     position: { x: 0.92388, y: -0.382683 },
   },
   {
@@ -34,7 +34,7 @@ const PURPOSES = [
     description: 'реализовывать дары и таланты для служения Богу и людям.',
     icon: IconTargetArrow,
     color:
-      '[--purpose-color:var(--color-blue-400)] [--purpose-text:var(--color-blue-600)]',
+      '[--purpose-color:var(--color-blue-400)] [--purpose-text:var(--color-blue-400)]',
     position: { x: 0.92388, y: 0.382683 },
   },
   {
@@ -42,7 +42,7 @@ const PURPOSES = [
     description: 'оставить след Христов в своем поколении.',
     icon: IconWorldMap,
     color:
-      '[--purpose-color:var(--color-emerald-400)] [--purpose-text:var(--color-emerald-600)]',
+      '[--purpose-color:var(--color-emerald-400)] [--purpose-text:var(--color-emerald-400)]',
     position: { x: 0.382683, y: 0.92388 },
   },
 ]
@@ -77,7 +77,7 @@ export function PurposeBlock() {
 
   return (
     <section>
-      <h2 className="tracking-wider md:text-[40px] text-3xl font-extrabold text-foreground/20 text-center uppercase">
+      <h2 className="tracking-wider md:text-[40px] text-3xl font-extrabold text-muted/60 text-center uppercase">
         Для чего мы существуем
       </h2>
       <div className="flex md:flex-row flex-col gap-6 sm:mt-6 mt-0 items-center">
@@ -153,7 +153,7 @@ export function PurposeBlock() {
             </p>
           </div>
           <div className="mt-6 pt-5 border-t border-foreground/10 flex justify-between items-center">
-            <div className="text-sm tracking-widest text-foreground/40 tabular-nums">
+            <div className="text-sm tracking-widest text-muted tabular-nums">
               <span className="text-(--purpose-color) font-medium">
                 {String(selectedIndex + 1).padStart(2, '0')}
               </span>{' '}

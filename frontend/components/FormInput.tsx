@@ -11,7 +11,7 @@ export function FormInput({ label, typeInput, placeholder }: FormInputProps) {
       <input
         required
         type={typeInput}
-        className="border border-foreground/50 rounded-lg py-2 px-4 w-full"
+        className="border border-border-strong focus:border-accent rounded-lg py-2 px-4 w-full"
         placeholder={placeholder}
       />
     </label>

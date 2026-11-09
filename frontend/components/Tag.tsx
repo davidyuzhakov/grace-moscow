@@ -10,7 +10,7 @@ export function Tag({
   return (
     <div
       className={twMerge(
-        `flex items-center gap-2 text-base bg-white shadow-sm rounded-full px-2 py-0.5`,
+        `flex items-center gap-1.5 text-xs text-secondary border border-border rounded-full py-1.5 pr-2.5 pl-1.75`,
         className,
       )}
     >

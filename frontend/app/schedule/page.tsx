@@ -14,13 +14,13 @@ export default async function SchedulePage() {
   const data = await userService.getMe()
   const user = data.ok ? data.data : undefined
 
-  if (!user) {
-    redirect('/')
-  }
+  // if (!user) {
+  //   redirect('/')
+  // }
 
-  if (user.userStatus !== 'принято') {
-    redirect('/forbidden')
-  }
+  // if (user.userStatus !== 'принято') {
+  //   redirect('/forbidden')
+  // }
 
   const schedule = await sundayService.getSchedule()
 
@@ -31,7 +31,7 @@ export default async function SchedulePage() {
       {schedule.ok ? (
         <ScheduleBoard {...schedule.data} />
       ) : (
-        <div className="rounded-3xl bg-white p-8 shadow-md">
+        <div className="rounded-3xl bg-surface border border-border p-8 shadow-md">
           <ErrorState error={schedule.error} />
         </div>
       )}

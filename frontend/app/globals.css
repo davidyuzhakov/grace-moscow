@@ -2,26 +2,53 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #f7f7f7;
-  --foreground: #171717;
-  --primary: #29529f;
-  --secondary: #6b8ebf;
-  --tertiary: #e0e7ff;
-  --accent: #1e293b;
+  color-scheme: dark;
+  --background: #07080b;
+  --foreground: #f5f5f7;
+  --surface: #111319;
+  --surface-raised: #191920;
+  --muted: #8c909f;
+  --text-secondary: #c3cbdc;
+  --border: #ffffff1a;
+  --border-strong: #34363e;
+  --primary: #345db9;
+  --primary-hover: #416bc9;
+  --accent: #7194ff;
+  --danger: var(--color-red-400);
 }
 
-input {
-  outline: none;
-  font-family: inherit;
+@layer base {
+  input {
+    font-family: inherit;
+    background: var(--surface);
+    color: var(--foreground);
+    caret-color: var(--accent);
+  }
+
+  input::placeholder {
+    color: var(--muted);
+  }
+
+  input:autofill {
+    box-shadow: 0 0 0 1000px var(--surface) inset;
+    -webkit-text-fill-color: var(--foreground);
+    caret-color: var(--accent);
+  }
 }
 
 @theme {
   --color-background: var(--background);
   --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
   --color-accent: var(--accent);
-  --color-tertiary: var(--tertiary);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-muted: var(--muted);
+  --color-text-secondary: var(--text-secondary);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-primary-hover: var(--primary-hover);
+  --color-danger: var(--danger);
 
   --breakpoint-xs: 415px;
 }
@@ -31,6 +58,26 @@ body {
   color: var(--foreground);
   font-family: var(--font-inter);
   font-size: 16px;
+}
+
+.prose {
+  --tw-prose-body: var(--text-secondary);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-lead: var(--muted);
+  --tw-prose-links: var(--accent);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-counters: var(--muted);
+  --tw-prose-bullets: var(--muted);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--text-secondary);
+  --tw-prose-quote-borders: var(--accent);
+  --tw-prose-captions: var(--muted);
+  --tw-prose-kbd: var(--foreground);
+  --tw-prose-kbd-shadows: 245 245 247;
+  --tw-prose-pre-code: var(--text-secondary);
+  --tw-prose-pre-bg: var(--surface-raised);
+  --tw-prose-th-borders: var(--border-strong);
+  --tw-prose-td-borders: var(--border);
 }
 
 .container {

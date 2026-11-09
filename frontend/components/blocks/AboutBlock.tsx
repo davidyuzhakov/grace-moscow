@@ -19,13 +19,14 @@ export function AboutBlock() {
   useGSAP(
     () => {
       const media = gsap.matchMedia()
+      const palette = getComputedStyle(document.documentElement)
 
       media.add('(prefers-reduced-motion: no-preference)', () => {
         gsap.fromTo(
           '[data-about-word]',
-          { color: '#9ca3af' },
+          { color: 'rgba(140, 144, 159, 0.5)' },
           {
-            color: '#000000',
+            color: palette.getPropertyValue('--foreground').trim(),
             duration: 1,
             stagger: 1,
             ease: 'none',
@@ -50,7 +51,7 @@ export function AboutBlock() {
         <Chip text="кто мы" className="bg-accent" />
         <h2
           ref={heading}
-          className="lg:text-3xl sm:text-2xl text-xl text-black"
+          className="lg:text-3xl sm:text-2xl text-xl text-foreground"
         >
           {ABOUT_WORDS.map((word, index) => (
             <Fragment key={index}>

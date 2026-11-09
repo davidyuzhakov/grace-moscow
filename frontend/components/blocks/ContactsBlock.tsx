@@ -7,7 +7,7 @@ export function ContactsBlock() {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
-        <div className="bg-white shadow-sm rounded-full md:size-10 size-8 flex items-center justify-center">
+        <div className="bg-surface border border-border rounded-full md:size-10 size-8 flex items-center justify-center">
           <IconMapPin className="md:size-6 size-5" />
         </div>
         <h3 className="md:text-2xl text-xl font-medium">Где мы находимся</h3>
@@ -34,7 +34,7 @@ export function ContactsBlock() {
           </a>
         </Tag>
       </div>
-      <div className="w-full h-80">
+      <div className="w-full h-80 overflow-hidden rounded-2xl border border-border bg-surface">
         <YandexMap />
       </div>
     </div>
