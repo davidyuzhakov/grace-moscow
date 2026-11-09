@@ -1,0 +1,291 @@
+.page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+}
+
+.page :is(a, button):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+}
+
+.heroAtmosphere {
+  pointer-events: none;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.heroAtmosphere span {
+  position: absolute;
+  width: 40rem;
+  height: 40rem;
+  top: 14rem;
+  left: calc(50% - 43rem);
+  border-radius: 50%;
+  filter: blur(5.5rem);
+  opacity: 0.15;
+  background: radial-gradient(circle, #1f56c2, transparent 65%);
+  animation: atmosphere 16s ease-in-out infinite alternate;
+}
+
+.heroAtmosphere span:nth-child(2) {
+  top: 18rem;
+  left: auto;
+  right: calc(50% - 44rem);
+  background: radial-gradient(circle, #9b4a22, transparent 65%);
+  opacity: 0.12;
+  animation-delay: -8s;
+}
+
+.heroAtmosphere span:nth-child(3) {
+  width: 34rem;
+  height: 25rem;
+  top: 5rem;
+  left: calc(50% - 17rem);
+  background: radial-gradient(circle, #242665, transparent 65%);
+  opacity: 0.13;
+  filter: blur(5rem);
+}
+
+.gradientText {
+  color: var(--accent);
+  background: linear-gradient(
+    110deg,
+    #b8d1ff 0%,
+    #a9baff 36%,
+    #d3b7e0 68%,
+    #f1c8ad 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.primaryButton {
+  color: var(--foreground);
+  background: var(--primary);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--foreground) 15%, transparent),
+    0 3px 20px #3e5daa18;
+  transition:
+    transform 0.25s,
+    background 0.25s,
+    box-shadow 0.25s;
+}
+
+.primaryButton:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px #4c73db35;
+}
+
+.sceneHalo {
+  background: linear-gradient(120deg, #336bcf44, transparent 55%, #a16a432a);
+  filter: blur(2.75rem);
+}
+
+.sceneStar {
+  color: #bed0ff;
+  filter: drop-shadow(0 0 1.5rem #6188ed66);
+  animation: starTurn 24s ease-in-out infinite alternate;
+}
+
+.photo {
+  box-shadow: 0 2rem 5rem color-mix(in srgb, #000 53%, transparent);
+}
+
+.photoShade {
+  background: linear-gradient(
+    0deg,
+    #05070ce6 0%,
+    #06081022 45%,
+    #07080b22 70%,
+    #07080b33 100%
+  );
+}
+
+.invite {
+  background: linear-gradient(130deg, #2a303bad, #141820b1);
+  backdrop-filter: blur(10px);
+  animation: float 7s ease-in-out infinite;
+}
+
+.serviceCard {
+  background: radial-gradient(
+    ellipse at 100% 110%,
+    #2458a4 0%,
+    #162c57 35%,
+    #101c35 75%
+  );
+  transition:
+    transform 0.4s,
+    border-color 0.4s;
+}
+
+.serviceCard[data-service='friday'] {
+  background: radial-gradient(
+    ellipse at 95% 85%,
+    #513c33 0%,
+    #282129 43%,
+    var(--surface-raised) 83%
+  );
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  border-color: #9caad945;
+}
+
+.serviceArt {
+  transform: rotate(-25deg);
+  opacity: 0.48;
+}
+
+.serviceArt span {
+  position: absolute;
+  border: 1px solid #73a9ff60;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 2px 10px #64a8ff10,
+    0 0 6px #4f8fff08;
+}
+
+.prayerLight {
+  transform: rotate(25deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ddb3900e 35%,
+    #d7a98624 48%,
+    #f3d4ae36 49%,
+    #edbf960d 53%,
+    transparent
+  );
+  filter: blur(2px);
+}
+
+.contactPanel {
+  background: radial-gradient(ellipse at 75% 100%, #151c2c, var(--surface) 75%);
+}
+
+.contactOrb {
+  opacity: 0.13;
+  color: #a4baff;
+}
+
+.contactOrb span {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid #9caee5;
+}
+
+.socialLink {
+  position: relative;
+  isolation: isolate;
+  background: color-mix(in srgb, var(--foreground) 1%, transparent);
+  border-color: color-mix(in srgb, var(--foreground) 15%, transparent);
+  color: var(--text-secondary);
+  transition:
+    color 0.25s,
+    transform 0.25s;
+}
+
+.socialLink::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border: 1px solid var(--accent);
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent) 14%, transparent),
+    color-mix(in srgb, var(--accent) 4%, transparent)
+  );
+  mask-image: linear-gradient(#000, #000);
+  mask-repeat: no-repeat;
+  mask-position: right;
+  mask-size: 0% 100%;
+  content: '';
+  pointer-events: none;
+  transition: mask-size 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.socialLink svg {
+  color: var(--text-secondary);
+  transition:
+    transform 0.25s,
+    color 0.25s;
+}
+
+.socialLink:is(:hover, :focus-visible) {
+  color: var(--foreground);
+  transform: translateY(-2px);
+}
+
+.socialLink:is(:hover, :focus-visible)::before {
+  mask-position: left;
+  mask-size: 100% 100%;
+}
+
+.socialLink:is(:hover, :focus-visible) svg {
+  color: var(--foreground);
+  transform: translate(2px, -2px);
+}
+
+.location {
+  background: radial-gradient(
+    ellipse at 50% 45%,
+    #1c2a46 0%,
+    #131b2c 35%,
+    #10131b 73%
+  );
+}
+
+@keyframes atmosphere {
+  to {
+    transform: translate(60px, -30px) scale(1.18);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(1deg);
+  }
+}
+
+@keyframes starTurn {
+  from {
+    transform: rotate(-8deg);
+  }
+  to {
+    transform: rotate(35deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :global(html):has(.page) {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page *,
+  .page *::before,
+  .page *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .primaryButton:hover,
+  .serviceCard:hover,
+  .socialLink:is(:hover, :focus-visible),
+  .socialLink:is(:hover, :focus-visible) svg {
+    transform: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .gradientText {
+    -webkit-text-fill-color: currentColor;
+  }
+}

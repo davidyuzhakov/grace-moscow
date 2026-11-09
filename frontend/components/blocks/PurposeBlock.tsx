@@ -77,7 +77,7 @@ export function PurposeBlock() {
 
   return (
     <section>
-      <h2 className="tracking-wider md:text-[40px] text-3xl font-extrabold text-muted/60 text-center uppercase">
+      <h2 className="tracking-wider md:text-[40px] text-3xl font-extrabold text-muted/40 text-center uppercase">
         Для чего мы существуем
       </h2>
       <div className="flex md:flex-row flex-col gap-6 sm:mt-6 mt-0 items-center">
