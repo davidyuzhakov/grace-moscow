@@ -8,6 +8,9 @@ import {
 } from '@tabler/icons-react'
 import type { ReactNode } from 'react'
 import { services } from './contact-info'
+import { ContactsHero } from './ContactsHero'
+import { ContactsGatherings } from './ContactsGatherings'
+import { RevealSection } from './RevealSection'
 import styles from './contacts.module.css'
 import { YandexMap } from '@/components/YandexMap'
 import { Tag } from '@/components/Tag'
@@ -22,6 +25,7 @@ const phone = '+7 (916) 599-81-03'
 const phoneLink = 'tel:+79165998103'
 const email = 'grace.church.msk@yandex.ru'
 const emailLink = `mailto:${email}`
+const welcomeEmphasis = 'каждого'
 const socials = [
   { name: 'Telegram', href: 'https://t.me/grace_church_msk' },
   { name: 'YouTube', href: 'https://www.youtube.com/@grace.church.moscow' },
@@ -35,7 +39,12 @@ const sectionTitle =
 
 function Star({ className }: { className: string }) {
   return (
-    <svg className={className} viewBox="0 0 100 100" aria-hidden="true">
+    <svg
+      data-hero-star
+      className={className}
+      viewBox="0 0 100 100"
+      aria-hidden="true"
+    >
       <path
         d="M50 1c0 37-12 49-49 49 37 0 49 12 49 49 0-37 12-49 49-49C62 50 50 38 50 1Z"
         fill="currentColor"
@@ -87,42 +96,54 @@ export default function ContactsPage() {
     <div
       className={`${styles.page} mx-auto max-w-296 px-3 pt-0 sm:px-6 md:px-8 md:pt-14 lg:px-4`}
     >
-      <section
-        className="relative isolate text-center"
-        aria-labelledby="contacts-title"
-      >
-        <div
-          className={`${styles.heroAtmosphere} absolute inset-y-0 left-1/2 -z-20 w-screen -translate-x-1/2`}
-          aria-hidden="true"
-        >
-          <span />
-          <span />
-          <span />
-        </div>
+      <ContactsHero>
         <h1
           id="contacts-title"
           className="text-[clamp(2rem,12.6vw,4rem)] leading-none font-[650] sm:text-7xl md:text-[5rem] lg:text-[84px]"
         >
-          Рады видеть
+          <span data-hero-welcome className="inline-block">
+            Рады видеть
+          </span>
           <br />
-          <span className={`${styles.gradientText} inline-block px-2`}>
-            каждого
+          <span
+            data-hero-emphasis
+            className="inline-block px-2 whitespace-nowrap"
+          >
+            <span className="sr-only">{welcomeEmphasis}</span>
+            <span aria-hidden="true">
+              {Array.from(welcomeEmphasis).map((letter, index) => (
+                <span
+                  key={index}
+                  data-hero-letter
+                  className={`${styles.gradientText} ${styles.heroLetter}`}
+                  style={{
+                    backgroundSize: `${welcomeEmphasis.length * 100}% 100%`,
+                    backgroundPosition: `${(index / (welcomeEmphasis.length - 1)) * 100}% 50%`,
+                  }}
+                >
+                  {letter}
+                </span>
+              ))}
+            </span>
           </span>
         </h1>
-        <p className="mx-auto mt-6 max-w-lg text-sm md:leading-7 leading-6 text-muted">
+        <p
+          data-hero-intro
+          className="mx-auto mt-6 max-w-lg text-sm md:leading-7 leading-6 text-muted"
+        >
           Присоединяйтесь к нашим служениям <br className="hidden sm:block" />
           или свяжитесь с нами любым удобным способом.
         </p>
-        <a className={`${primaryButton} mt-7`} href="#contact">
+        <a data-hero-intro className={`${primaryButton} mt-7`} href="#contact">
           Связаться с нами <IconArrowDownRight size={18} aria-hidden="true" />
         </a>
 
-        <div className="relative mt-12 text-left sm:mx-4 sm:mt-14 md:mx-8 lg:mx-12">
+        <div
+          data-hero-scene
+          className="relative mt-12 text-left sm:mx-4 sm:mt-14 md:mx-8 lg:mx-12"
+        >
           <div
-            className={`${styles.sceneHalo} pointer-events-none absolute -inset-x-2 top-[10%] -bottom-3 -z-10`}
-            aria-hidden="true"
-          />
-          <div
+            data-hero-frame
             className="pointer-events-none absolute inset-x-0 top-4 -bottom-3 -z-10 -rotate-4 rounded-3xl border border-accent/15 sm:-inset-x-8 lg:-inset-x-12"
             aria-hidden="true"
           />
@@ -130,6 +151,7 @@ export default function ContactsPage() {
             className={`${styles.sceneStar} absolute -top-4 -left-2 z-10 size-8 sm:-left-5 sm:size-10 lg:top-0 lg:-left-10 lg:size-13`}
           />
           <figure
+            data-hero-photo
             className={`${styles.photo} relative isolate h-88 overflow-hidden rounded-2xl border border-foreground/10 bg-surface sm:rounded-[1.25rem] lg:h-100`}
           >
             <Image
@@ -146,13 +168,16 @@ export default function ContactsPage() {
               aria-hidden="true"
             />
             <figcaption className="absolute bottom-7 left-6 text-2xl leading-tight font-[550] tracking-tight sm:bottom-8 sm:left-8 sm:text-3xl">
-              <span className="block text-foreground/85">
+              <span data-hero-caption className="block text-foreground/85">
                 Где человек ставит точку,
               </span>
-              <strong className="font-semibold">там Бог ставит запятую</strong>
+              <strong data-hero-caption className="block font-semibold">
+                там Бог ставит запятую
+              </strong>
             </figcaption>
           </figure>
           <div
+            data-hero-invite
             className={`${styles.invite} absolute lg:right-4 -right-2 lg:top-5 -top-2 z-10 border border-foreground/15 rounded-3xl md:size-28 size-24 flex items-center justify-center flex-col text-center`}
           >
             <div className="md:text-[11px] text-[10px] leading-3 mb-1">
@@ -163,20 +188,22 @@ export default function ContactsPage() {
             </div>
           </div>
         </div>
-      </section>
+      </ContactsHero>
 
-      <section
-        id="gatherings"
-        className="scroll-mt-24 pt-20 sm:pt-32"
-        aria-labelledby="gatherings-title"
-      >
+      <ContactsGatherings>
         <div className="mb-7 md:mb-9 md:flex md:items-end md:justify-between md:gap-10">
-          <div>
-            <SectionLabel number="01">Наши служения</SectionLabel>
+          <div data-gatherings-heading>
+            <div data-gatherings-label>
+              <SectionLabel number="01">Наши служения</SectionLabel>
+            </div>
             <h2 id="gatherings-title" className={sectionTitle}>
-              Встречаемся
+              <span data-gatherings-title className="inline-block">
+                Встречаемся
+              </span>
               <br />
-              <span className="text-muted">каждую неделю</span>
+              <span data-gatherings-emphasis className="inline-block origin-left text-muted">
+                каждую неделю
+              </span>
             </h2>
           </div>
         </div>
@@ -234,16 +261,16 @@ export default function ContactsPage() {
             )
           })}
         </div>
-      </section>
+      </ContactsGatherings>
 
-      <section
+      <RevealSection
         id="visit"
-        className="grid scroll-mt-24 items-center gap-7 pt-16 sm:pt-20 md:grid-cols-[1fr_1.1fr] md:gap-10 lg:gap-16 lg:pt-28"
+        className={`${styles.ambientSection} ${styles.visitAmbient} grid scroll-mt-24 items-center gap-7 pt-16 sm:pt-20 md:grid-cols-[1fr_1.1fr] md:gap-10 lg:gap-16 lg:pt-28`}
         aria-labelledby="visit-title"
       >
         <div>
           <SectionLabel number="02">Где мы находимся</SectionLabel>
-          <h2 className={sectionTitle}>
+          <h2 id="visit-title" className={sectionTitle}>
             Мы здесь.
             <br />
             <span className="text-muted">Приходите!</span>
@@ -277,9 +304,9 @@ export default function ContactsPage() {
         >
           <YandexMap />
         </div>
-      </section>
+      </RevealSection>
 
-      <section
+      <RevealSection
         id="contact"
         className="scroll-mt-24 pt-16 sm:pt-20 lg:pt-24"
         aria-labelledby="contact-title"
@@ -370,7 +397,7 @@ export default function ContactsPage() {
             </nav>
           </div>
         </div>
-      </section>
+      </RevealSection>
     </div>
   )
 }

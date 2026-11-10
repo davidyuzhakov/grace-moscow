@@ -23,7 +23,6 @@
   filter: blur(5.5rem);
   opacity: 0.15;
   background: radial-gradient(circle, #1f56c2, transparent 65%);
-  animation: atmosphere 16s ease-in-out infinite alternate;
 }
 
 .heroAtmosphere span:nth-child(2) {
@@ -32,7 +31,6 @@
   right: calc(50% - 44rem);
   background: radial-gradient(circle, #9b4a22, transparent 65%);
   opacity: 0.12;
-  animation-delay: -8s;
 }
 
 .heroAtmosphere span:nth-child(3) {
@@ -43,6 +41,31 @@
   background: radial-gradient(circle, #242665, transparent 65%);
   opacity: 0.13;
   filter: blur(5rem);
+}
+
+.ambientSection {
+  --ambient-left: #627da12e;
+  --ambient-right: #977c6c24;
+  position: relative;
+  isolation: isolate;
+}
+
+.ambientSection::before {
+  position: absolute;
+  inset: -4rem min(0px, calc((100% - 100vw) / 2 + 1rem));
+  z-index: -1;
+  opacity: 0.75;
+  background:
+    radial-gradient(ellipse at 6% 52%, var(--ambient-left), transparent 60%),
+    radial-gradient(ellipse at 94% 60%, var(--ambient-right), transparent 58%);
+  filter: blur(3rem);
+  pointer-events: none;
+  content: '';
+}
+
+.visitAmbient {
+  --ambient-left: #8d776329;
+  --ambient-right: #68739b26;
 }
 
 .gradientText {
@@ -56,6 +79,11 @@
   );
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.heroLetter {
+  display: inline-block;
+  transform-origin: 50% 85%;
 }
 
 .primaryButton {
@@ -76,15 +104,9 @@
   box-shadow: 0 6px 24px #4c73db35;
 }
 
-.sceneHalo {
-  background: linear-gradient(120deg, #336bcf44, transparent 55%, #a16a432a);
-  filter: blur(2.75rem);
-}
-
 .sceneStar {
   color: #bed0ff;
   filter: drop-shadow(0 0 1.5rem #6188ed66);
-  animation: starTurn 24s ease-in-out infinite alternate;
 }
 
 .photo {
@@ -104,7 +126,6 @@
 .invite {
   background: linear-gradient(130deg, #2a303bad, #141820b1);
   backdrop-filter: blur(10px);
-  animation: float 7s ease-in-out infinite;
 }
 
 .serviceCard {
@@ -236,31 +257,6 @@
     #131b2c 35%,
     #10131b 73%
   );
-}
-
-@keyframes atmosphere {
-  to {
-    transform: translate(60px, -30px) scale(1.18);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0) rotate(2deg);
-  }
-  50% {
-    transform: translateY(-9px) rotate(1deg);
-  }
-}
-
-@keyframes starTurn {
-  from {
-    transform: rotate(-8deg);
-  }
-  to {
-    transform: rotate(35deg);
-  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
