@@ -1,10 +1,12 @@
 import { IconBrandYoutubeFilled, IconMailFilled } from '@tabler/icons-react'
 import Image from 'next/image'
 
+const socialClassName = `flex items-center border-border border p-3 rounded-full duration-200 hover:border-white/50`
+
 export function Footer() {
   return (
     <div className="container">
-      <div className="bg-surface text-foreground p-8 pb-4 mb-2.5 rounded-xl">
+      <div className="bg-surface text-foreground p-8 pb-4 mb-2.5 rounded-xl border-border border">
         <div className="flex items-start md:justify-between justify-center flex-wrap gap-5">
           <div className="flex flex-wrap md:flex-row flex-col justify-center md:gap-8 gap-3 items-start">
             <Image
@@ -29,13 +31,13 @@ export function Footer() {
             <div className="flex items-center gap-3 xs:flex-nowrap flex-wrap">
               <a
                 href="https://www.youtube.com/@grace.church.moscow"
-                className="flex items-center gap-1 bg-foreground/5 p-3 rounded-full hover:rotate-15 duration-200"
+                className={socialClassName}
               >
                 <IconBrandYoutubeFilled size={25} />
               </a>
               <a
                 href="https://vkvideo.ru/@grace.moscow"
-                className="flex items-center gap-1 p-3 rounded-full bg-foreground/5 hover:rotate-15 duration-200"
+                className={socialClassName}
               >
                 <Image
                   width={25}
@@ -45,15 +47,12 @@ export function Footer() {
                   alt="VK Video"
                 />
               </a>
-              <a
-                href="https://vk.com/grace.moscow"
-                className="flex items-center gap-1 p-3 rounded-full bg-foreground/5 hover:rotate-15 duration-200"
-              >
+              <a href="https://vk.com/grace.moscow" className={socialClassName}>
                 <Image width={25} height={25} src={'/vk.svg'} alt="вконтакте" />
               </a>
               <a
                 href="https://t.me/grace_church_msk"
-                className="flex items-center gap-1 p-3 rounded-full bg-foreground/5 hover:rotate-15 duration-200"
+                className={socialClassName}
               >
                 <Image
                   width={25}
@@ -65,7 +64,7 @@ export function Footer() {
               </a>
               <a
                 href="mailto:grace.church.msk@yandex.ru"
-                className="flex items-center gap-1 bg-foreground/5 p-3 rounded-full hover:rotate-15 duration-200"
+                className={socialClassName}
               >
                 <IconMailFilled size={25} />
               </a>

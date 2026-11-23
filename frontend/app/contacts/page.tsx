@@ -201,7 +201,10 @@ export default function ContactsPage() {
                 Встречаемся
               </span>
               <br />
-              <span data-gatherings-emphasis className="inline-block origin-left text-muted">
+              <span
+                data-gatherings-emphasis
+                className="inline-block origin-left text-muted"
+              >
                 каждую неделю
               </span>
             </h2>
@@ -384,7 +387,7 @@ export default function ContactsPage() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${styles.socialLink} flex min-h-11 items-center justify-between gap-2 rounded-full border px-3 text-xs sm:min-w-36 sm:gap-7 sm:px-4 sm:text-[.8125rem]`}
+                  className="flex p-3 items-center justify-between gap-2 rounded-full border border-border text-xs sm:min-w-36 sm:gap-7 sm:px-4 hover:border-accent hover:text-accent hover:-translate-y-1 duration-200"
                 >
                   {name}{' '}
                   <IconArrowUpRight

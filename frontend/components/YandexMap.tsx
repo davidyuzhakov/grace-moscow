@@ -92,8 +92,6 @@ function MapContainer({ api }: { api: ReactifiedApi }) {
     YMapDefaultSchemeLayer,
     YMapDefaultFeaturesLayer,
     YMapDefaultMarker,
-    YMapControls,
-    YMapZoomControl,
   } = api
 
   return (
@@ -101,7 +99,7 @@ function MapContainer({ api }: { api: ReactifiedApi }) {
       className="size-full rounded-2xl"
       location={location}
       theme="dark"
-      behaviors={['drag', 'pinchZoom', 'dblClick']}
+      behaviors={['drag', 'scrollZoom', 'pinchZoom', 'dblClick']}
     >
       <YMapDefaultSchemeLayer />
       <YMapDefaultFeaturesLayer />
@@ -119,9 +117,6 @@ function MapContainer({ api }: { api: ReactifiedApi }) {
           )
         }
       />
-      <YMapControls position="right">
-        <YMapZoomControl />
-      </YMapControls>
     </YMap>
   )
 }
